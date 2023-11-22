@@ -74,3 +74,17 @@ const add_new_task = () => {
 
 // https://www.youtube.com/watch?v=KFkG0VA7mnE      Appending new element 9:21
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// REMEMBER TO Pull from git :)
