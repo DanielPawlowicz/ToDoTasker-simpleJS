@@ -6,6 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css"/>
     <script src="script.js"></script>
+    <script>
+
+    const clickk = document.getElementsById("add");
+    clickk.addEventListener("click", function(e){
+        console.log(e);
+    });
+
+    </script>
 </head>
 <body>
     
@@ -13,10 +21,14 @@
         <h1>To Do Tasker</h1>
         <button onclick="add_new_task();" class="add">Add</button>
 
-        <div class="task">
-            <label><input type="checkbox" class="task_title">Cos tam</label>
+        <!-- <div class="task">
+            <input type="checkbox" class="checkbox_task"/><input type="textarea" class="task_title" placeholder="What task you have to do?">
         </div>
 
+        <div class="task">
+            <input type="checkbox" class="checkbox_task"/><input type="textarea" class="task_title" placeholder="What task you have to do?">
+        </div> -->
+      
     </div>
 
 </body>

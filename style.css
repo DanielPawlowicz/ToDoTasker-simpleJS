@@ -11,7 +11,7 @@ h1{
 #main_table{
     width: 30%;
     margin: 4% auto;
-    border: 0.5px solid #ddd;
+    border: 0.5px solid #eee;
     min-height: 700px;
     background-color: #fff;
     box-shadow: #ddd 0px 0px 10px;
@@ -37,17 +37,19 @@ h1{
     /* font-weight: bold; */
 }
 
-/* label{
-    text-decoration: line-through;
-} */
-
 .task{
     box-sizing: border-box;
-    padding: 8px;
-    border: 0.2px solid #ddd;
+    padding: 4px;
+    border: 0.1px solid #dee;
+    box-shadow: #ddd 0px 0px 10px;
+    margin-bottom: 10px;
 }
 
 .task_title{
     margin-right: 20px;
+    border: none;
 }
 
+.task_inherit{
+    margin-left: 50px;
+}
