@@ -23,6 +23,9 @@ Types of tasks:
 An array contains objects that are the tasks
 
 
+maybe the indexes that chatgpt suggested will be helpful to manage the task objects and 
+
+
 NOW
 - displaying array of tasks
 - displaying single task as it has been created
@@ -46,9 +49,25 @@ const display_task = () => {
     const taskCanvas = document.getElementById("main_table");
     const task = document.createElement("div");
     task.className = "task";
-    task.innerHTML = '<input type="checkbox" class="checkbox_task"/><input type="textarea" class="task_title" placeholder="What task you have to do?">';
+    task.innerHTML = '<input type="checkbox" class="checkbox_task"/><input type="textarea" class="task_title" placeholder="What task you have to do?" onblur="saveTextareaValue(this)">';
     taskCanvas.appendChild(task);
 };
+
+let lastEditedTextarea;
+
+function saveTextareaValue(textarea) {
+    // Get the value of the textarea
+    const textareaValue = textarea.value;
+
+    // Save the value in a variable
+    lastEditedTextarea = {
+        element: textarea,
+        value: textareaValue
+    };
+
+    // You can do something with the value, for example, log it to the console
+    console.log('Last edited textarea:', lastEditedTextarea);
+}
 
 const add_new_task = () => {
     // const newTaskInput = document.querySelector("#task input[type='checkbox']");
@@ -82,6 +101,7 @@ const add_new_task = () => {
 
 
 // https://www.youtube.com/watch?v=KFkG0VA7mnE      Appending new element 9:21
+// https://www.freecodecamp.org/news/javascript-array-of-objects-tutorial-how-to-create-update-and-loop-through-objects-using-js-array-methods/     Arrays
 
 
 
@@ -97,3 +117,95 @@ const add_new_task = () => {
 
 
 // REMEMBER TO Pull from git :)
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CHAT GPT with indexes
+
+            // <!DOCTYPE html>
+            // <html lang="en">
+            // <head>
+            //     <meta charset="UTF-8">
+            //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            //     <title>Textarea Value Example</title>
+            // </head>
+            // <body>
+
+            //     <textarea class="myTextarea" onblur="saveTextareaValue(event, 0)"></textarea>
+            //     <textarea class="myTextarea" onblur="saveTextareaValue(event, 1)"></textarea>
+            //     <!-- Add more textareas with the same class -->
+
+            //     <script src="yourscript.js"></script>
+            // </body>
+            // </html>
+
+
+
+            // JS FILE
+
+            // let textareaValues = [];
+
+            // function saveTextareaValue(event, index) {
+            //     // Get the value of the textarea
+            //     const textarea = event.target;
+            //     const textareaValue = textarea.value;
+
+            //     // Save the value in the array using the index
+            //     textareaValues[index] = textareaValue;
+
+            //     // You can do something with the value, for example, log it to the console
+            //     console.log('Textarea values:', textareaValues);
+            // }
+
+
+// CHAT GPT - styling textarea when checkbox is checked
+        // <div class="textarea-container">
+        //     <textarea class="myTextarea" onblur="saveTextareaValue(this)"></textarea>
+        //     <input type="checkbox" class="myCheckbox" onchange="applyTextDecoration(this)">
+        // </div>
+    
+    // JS
+
+        // function saveTextareaValue(textarea) {
+        //     // Get the value of the textarea
+        //     const textareaValue = textarea.value;
+        
+        //     // Access the parent div
+        //     const parentDiv = textarea.closest('.textarea-container');
+        
+        //     // You can do something with the values, for example, log them to the console
+        //     console.log('Textarea value:', textareaValue);
+        //     console.log('Parent div:', parentDiv);
+        // }
+        
+        // function applyTextDecoration(checkbox) {
+        //     // Access the parent div
+        //     const parentDiv = checkbox.closest('.textarea-container');
+        
+        //     // Access the textarea within the same div
+        //     const textarea = parentDiv.querySelector('.myTextarea');
+        
+        //     // Apply or remove the 'text-through' class based on the checkbox state
+        //     if (checkbox.checked) {
+        //         textarea.classList.add('text-through');
+        //     } else {
+        //         textarea.classList.remove('text-through');
+        //     }
+        // }
+
+
+
+
+
+// Ask for whole app for chatgpt
+// Could you create a simple js app that when user pushes button it creates (visually in html) a new "task" that contains checkbox and textarea? The value of textarea user types when object is created, and then the value is stored. Task have sub-tasks. When user check the checkbox 
