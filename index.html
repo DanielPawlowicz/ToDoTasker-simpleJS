@@ -8,9 +8,13 @@
     <script src="script.js"></script>
     <script>
 
-    const clickk = document.getElementsById("add");
-    clickk.addEventListener("click", function(e){
-        console.log(e);
+    // const clickk = document.getElementsById("add");
+    // clickk.addEventListener("click", function(e){
+    //     console.log(e);
+    // });
+
+    document.querySelector('.task_title').onblur(function(e){
+    console.log(e.value);
     });
 
     </script>

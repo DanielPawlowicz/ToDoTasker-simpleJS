@@ -11,6 +11,7 @@
 - You can add a time stamps to tasks, but they are not sorted by time
 - You can change the size of font using arrows on your keyboard
 
+
 Types of tasks:
 - Big task
 - Sub-task
@@ -31,11 +32,11 @@ NOW
 
 const Task = {
 
+    titleOfTask: null,
+
     showTask : function (title) {
         console.log(title)
     }
-
-
 };
 
 let tasksArray = [];
@@ -65,6 +66,14 @@ const add_new_task = () => {
     // Creating new task as an object 
     display_task();
 };
+
+// const change_task_title = () => {
+//     document.querySelector('.task_title').onblur(function(e){
+//     console.log(e.value);
+// });
+// };
+
+
 
 
 // const taskDone = () => {
