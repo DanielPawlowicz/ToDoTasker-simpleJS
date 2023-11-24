@@ -19,6 +19,8 @@ Types of tasks:
 - Habit
 - Event
 
+When hovering the task there will occur a button with + next to div that will allow you to add a subtask, and then there will be an arrow pointed down or up that will allow user to hide or show ubtasks
+
 
 An array contains objects that are the tasks
 
@@ -53,21 +55,41 @@ const display_task = () => {
     taskCanvas.appendChild(task);
 };
 
-let lastEditedTextarea;
+let lastEditedTextarea = {
+    value: null
+};
 
+// Onblur saves the value of textarea only if changed
 function saveTextareaValue(textarea) {
-    // Get the value of the textarea
+
     const textareaValue = textarea.value;
+    
+    if (lastEditedTextarea.value != textareaValue) {
 
-    // Save the value in a variable
-    lastEditedTextarea = {
-        element: textarea,
-        value: textareaValue
-    };
+        lastEditedTextarea.value = textareaValue;
 
-    // You can do something with the value, for example, log it to the console
-    console.log('Last edited textarea:', lastEditedTextarea);
+        console.log(lastEditedTextarea.value);
+
+    } else return;
 }
+// This is redundant
+// function taking_value_onfocus (textarea) {
+
+//     const textareaCurrentValue = textarea.value;
+
+//     lastEditedTextarea.value = textareaCurrentValue;
+// }
+
+
+
+
+
+// Need to make an array of an objects that will store the values of them (if checked, and the text of title)
+
+
+
+
+
 
 const add_new_task = () => {
     // const newTaskInput = document.querySelector("#task input[type='checkbox']");
