@@ -14,10 +14,11 @@
 
 Types of tasks:
 - Big task
-- Sub-task
 - Minor Task
+- Sub-task
 - Habit
 - Event
+- Appointment
 
 When hovering the task there will occur a button with + next to div that will allow you to add a subtask, and then there will be an arrow pointed down or up that will allow user to hide or show ubtasks
 
@@ -38,6 +39,7 @@ NOW
 const Task = {
 
     titleOfTask: null,
+    ifDone: false,
 
     showTask : function (title) {
         console.log(title)
@@ -51,7 +53,7 @@ const display_task = () => {
     const taskCanvas = document.getElementById("main_table");
     const task = document.createElement("div");
     task.className = "task";
-    task.innerHTML = '<input type="checkbox" class="checkbox_task"/><input type="textarea" class="task_title" placeholder="What task you have to do?" onblur="saveTextareaValue(this)">';
+    task.innerHTML = '<input type="checkbox" class="checkbox_task" onchange="applyTextDecoration(this)"/><input type="textarea" class="task_title" placeholder="What task you have to do?" onblur="saveTextareaValue(this)">';
     taskCanvas.appendChild(task);
 };
 
@@ -72,23 +74,9 @@ function saveTextareaValue(textarea) {
 
     } else return;
 }
-// This is redundant
-// function taking_value_onfocus (textarea) {
-
-//     const textareaCurrentValue = textarea.value;
-
-//     lastEditedTextarea.value = textareaCurrentValue;
-// }
-
-
-
 
 
 // Need to make an array of an objects that will store the values of them (if checked, and the text of title)
-
-
-
-
 
 
 const add_new_task = () => {
@@ -97,16 +85,34 @@ const add_new_task = () => {
     // create new object
     // give this object properties (title, description)
 
-    const textOfTask = prompt("Name the task");
+    // const textOfTask = prompt("Name the task");
     const task1 = Object.create(Task);
-    tasksArray.push(task1);
-    task1.value = textOfTask;
-    task1.showTask(textOfTask);
-    console.log(tasksArray);
+    tasksArray.push(task1); // Creating an array of an objects
+    // task1.value = textOfTask;
+    // task1.showTask(textOfTask);
+    // console.log(tasksArray);
     //console.log(task1.value);
     // Creating new task as an object 
     display_task();
 };
+
+function applyTextDecoration(checkbox) {
+    // Access the parent div
+    const parentDiv = checkbox.closest('.task');
+    
+    // Access the textarea within the same div
+    const textarea = parentDiv.querySelector('.task_title');
+    // console.log(textarea);
+    // Apply or remove the 'text-through' class based on the checkbox state
+    if (checkbox.checked) {
+        textarea.classList.add('text-through');
+        checkbox.classList.add('chchecked');
+    } else {
+        textarea.classList.remove('text-through');
+        textarea.classList.remove('chchecked');
+    }
+}
+
 
 // const change_task_title = () => {
 //     document.querySelector('.task_title').onblur(function(e){
