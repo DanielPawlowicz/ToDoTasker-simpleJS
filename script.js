@@ -53,7 +53,7 @@ const display_task = () => {
     const taskCanvas = document.getElementById("main_table");
     const task = document.createElement("div");
     task.className = "task";
-    task.innerHTML = '<input type="checkbox" class="checkbox_task" onchange="applyTextDecoration(this)"/><input type="textarea" class="task_title" placeholder="What task you have to do?" onblur="saveTextareaValue(this)">';
+    task.innerHTML = '<input type="checkbox" class="checkbox_task" onchange="applyTextDecoration(this)"/><input type="textarea" class="task_title" placeholder="What task you have to do?" onblur="saveTextareaValue(this)" onkeydown="loseFocus(event, this)"/>';
     taskCanvas.appendChild(task);
 };
 
@@ -73,26 +73,33 @@ function saveTextareaValue(textarea) {
         console.log(lastEditedTextarea.value);
 
     } else return;
-}
+};
+
+// This function allowes user to use enter to lose focus from textarea (like "accept the changes")
+function loseFocus (event, textarea) {
+    if(event.key === 'Enter'){
+        saveTextareaValue(textarea);
+        textarea.blur();
+    }
+};
 
 
 // Need to make an array of an objects that will store the values of them (if checked, and the text of title)
 
 
 const add_new_task = () => {
-    // const newTaskInput = document.querySelector("#task input[type='checkbox']");
-    
+                            // const newTaskInput = document.querySelector("#task input[type='checkbox']");
+                            // const textOfTask = prompt("Name the task");
     // create new object
-    // give this object properties (title, description)
-
-    // const textOfTask = prompt("Name the task");
     const task1 = Object.create(Task);
-    tasksArray.push(task1); // Creating an array of an objects
-    // task1.value = textOfTask;
-    // task1.showTask(textOfTask);
-    // console.log(tasksArray);
-    //console.log(task1.value);
-    // Creating new task as an object 
+    // appending a task object to an array of objects
+    tasksArray.push(task1); 
+                            // task1.value = textOfTask;
+                            // task1.showTask(textOfTask);
+                            // console.log(tasksArray);
+                            //console.log(task1.value);
+                            // Creating new task as an object 
+    // 
     display_task();
 };
 
