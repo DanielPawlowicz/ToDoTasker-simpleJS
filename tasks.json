@@ -1,0 +1,10 @@
+[
+    {
+        "titleOfTask": "Work",
+        "ifDone": false
+    },
+    {
+        "titleOfTask": "Rest",
+        "ifDone": false
+    }
+]
