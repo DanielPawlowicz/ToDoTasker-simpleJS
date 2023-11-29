@@ -81,6 +81,16 @@ function loseFocus (event, textarea) {
         saveTextareaValue(textarea);
         textarea.blur();
     }
+    else if(event.keyCode == 40){
+        saveTextareaValue(textarea);
+        // textarea.nextOfType().focus();
+
+        // to here it works, down drom there it doesnt work
+
+        let next = textarea.nextSibling;
+        console.log(next);
+        focus(next);
+    }
 };
 
 
