@@ -48,6 +48,42 @@ const Task = {
 
 let tasksArray = [];
 
+// Reading data from json
+const readJson = () => {
+    const filePath = 'tasks.json';
+    fetch(filePath)
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data);
+            tasksArray = data;
+            // console.log(tasksArray);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+    // this worked when i installed and used an live-server
+    // command line:
+    //      npm install -g live-server
+    //      live-server
+
+};
+
+
+window.addEventListener("load", readJson());
+
+// Saving tasks to json
+// const saveJson = () => {
+//     const jsonString = JSON.stringify('works', null, 2);
+//     const blob = new Blob([jsonString], {type: 'application/json'});
+//     const
+// };
+
+// window.addEventListener('beforeunload', console.log('works'));
+// window.onbeforeunload = function() {
+//     saveJson();
+//     return "All unsaved data will be lost. Are you sure?";
+// };
 
 const display_task = () => {
     const taskCanvas = document.getElementById("main_table");
